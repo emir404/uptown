@@ -1,0 +1,84 @@
+{
+  "$comment": "UPTOWN Restaurant drinks menu. Verbatim from '1.Tischsets VORDERS. 2024' placemat, captured 2026-07-07. Prices in EUR (German format). Do not invent values.",
+  "currency": "EUR",
+  "source": "1.Tischsets VORDERS. 2024 .pdf",
+  "draftBeer": {
+    "sizes": ["0,3l", "0,5l"],
+    "items": [
+      { "name": "Holsten Pilsener", "prices": { "0,3l": "3,50", "0,5l": "5,50" } },
+      { "name": "Grevensteiner", "prices": { "0,3l": "3,50", "0,5l": "5,50" } },
+      { "name": "Duckstein", "prices": { "0,3l": "3,50", "0,5l": "5,50" } },
+      { "name": "Erdinger Weizen", "prices": { "0,5l": "5,00" } },
+      { "name": "Alsterwasser (weiß/rot)", "prices": { "0,3l": "3,50", "0,5l": "5,00" } }
+    ]
+  },
+  "bottledBeer": [
+    { "name": "Erdinger Weizen alkoholfrei", "size": "0,5l", "price": "4,50" },
+    { "name": "Holsten alkoholfrei", "size": "0,33l", "price": "3,50" },
+    { "name": "Vitamalz", "size": "0,33l", "price": "3,50" }
+  ],
+  "whiteWine": [
+    { "name": "Pinot Grigio", "origin": "Italien", "style": "trocken", "glass02l": "5,50", "bottleSize": "1,0l", "bottlePrice": "21,50" },
+    { "name": "Riesling", "origin": "Deutschland", "style": "halbtrocken", "glass02l": "5,50", "bottleSize": "1,0l", "bottlePrice": "22,50" },
+    { "name": "Grauburgunder", "origin": "Deutschland", "style": "trocken", "glass02l": "5,50", "bottleSize": "0,75l", "bottlePrice": "18,50" },
+    { "name": "Heuriger Grüner Veltliner", "origin": "Österreich (Krems)", "style": "trocken", "glass02l": "5,50", "bottleSize": "1,0l", "bottlePrice": "22,50" },
+    { "name": "Kerner", "origin": "Deutschland", "style": "leichte Süße", "glass02l": "6,00", "bottleSize": "0,75l", "bottlePrice": "20,50" }
+  ],
+  "redWine": [
+    { "name": "Cabernet Sauvignon", "origin": "Chile", "style": "trocken", "glass02l": "5,50", "bottleSize": "1,5l", "bottlePrice": "29,00" },
+    { "name": "Portugieser Osthofener", "origin": "Deutschland", "style": "halbtrocken / lieblich", "glass02l": "5,50", "bottleSize": "0,75l", "bottlePrice": "19,50" },
+    { "name": "Tempranillo", "origin": "Spanien", "style": "trocken", "glass02l": "5,50", "bottleSize": "0,75l", "bottlePrice": "19,50" },
+    { "name": "Merlot", "origin": "Italien", "style": "trocken", "glass02l": "5,50", "bottleSize": "0,75l", "bottlePrice": "19,50" },
+    { "name": "Shiraz", "origin": "Südafrika", "style": "trocken", "glass02l": "5,50", "bottleSize": "0,75l", "bottlePrice": "19,50" },
+    { "name": "Malbec", "origin": "Argentinien", "style": "trocken", "glass02l": "6,00", "bottleSize": "0,75l", "bottlePrice": "20,50" }
+  ],
+  "roseWine": [
+    { "name": "Rosé", "origin": "Deutschland", "style": "halbtrocken-trocken; süffig-frisch mit kraftvollem Aroma", "glass02l": "5,50", "bottleSize": "1,0l", "bottlePrice": "22,50" }
+  ],
+  "cocktailsWithAlcohol": [
+    { "name": "Aperol-Spritz", "ingredients": "Aperol, Prosecco, Orangenscheibe, Mineralwasser", "price": "5,50" },
+    { "name": "Aperol-Erdbeer-Spritz", "ingredients": "Aperol, Prosecco, Erdbeermark, Mineralwasser", "price": "6,50" },
+    { "name": "Aperol-Passionsfrucht-Spritz", "ingredients": "Aperol, Prosecco, Passionsfrucht, Mineralwasser", "price": "6,50" },
+    { "name": "Tocco Rosso", "ingredients": "Campari, Prosecco, Holunderblütensirup, Mineralwasser, Minze", "price": "6,50" },
+    { "name": "Hugo", "ingredients": "Prosecco, Holunderblütensirup, Limette, Mineralwasser, Minze", "price": "6,50" },
+    { "name": "Mojito", "ingredients": "Rum, Minze, Limetten, Rohrzucker und Mineralwasser", "price": "6,50" },
+    { "name": "Caipirinha", "ingredients": "Cachaça, Limetten und Rohrzucker", "price": "6,50" },
+    { "name": "Passionsfrucht Mojito", "ingredients": "frische Passionsfrucht, Rum, Minze, Limetten, Rohrzucker", "price": "7,50" },
+    { "name": "Strawberry Daiquiri", "ingredients": "weißer Rum, Limettensaft, Erdbeermark", "price": "7,50" },
+    { "name": "Moscow Mule", "ingredients": "Wodka, Ginger Beer, Limettensaft, Gurkenscheiben", "price": "7,50" },
+    { "name": "Tequila Sunrise", "ingredients": "Tequila, O-Saft, Grenadine", "price": "7,50" },
+    { "name": "Sex on the Beach", "ingredients": "Tequila, Peach Likör, O-Saft, Grenadine", "price": "8,00" },
+    { "name": "Touch Down", "ingredients": "Wodka, Apricot Brandy, Maracujasaft, Zitronensaft, Grenadine", "price": "8,00" },
+    { "name": "Big Ben", "ingredients": "Gin, O-Saft, Zitronensaft, Grenadine, Bitter Lemon", "price": "8,00" },
+    { "name": "Bahama Mama", "ingredients": "brauner + weißer Rum, Havana Rum, Malibu, O-Saft, Ananassaft, Zitronensaft, Grenadine", "price": "8,50" },
+    { "name": "Zombie", "ingredients": "weißer Rum, brauner Rum, Rum 73 %, Cointreau, Zitronensaft, Maracujasirup, Ananassaft, O-Saft, Grenadine", "price": "8,50" },
+    { "name": "UPTOWN COLADA", "ingredients": "ein sahniger Cocos-Traum mit einer TOP-SECRET-Rezeptur", "price": "9,00" },
+    { "name": "Mai Tai", "ingredients": "brauner Rum, weißer Rum, Cointreau, O-Saft, Ananassaft, Limettensaft, Mandelsirup", "price": "9,00" },
+    { "name": "Long Island IceTee", "ingredients": "weißer Rum, Gin, Wodka, Tequila, Cointreau, Cola, Limette, O-Saft", "price": "9,00" },
+    { "name": "Singapore Sling", "ingredients": "Gin, Cherry-Brandy, Cointreau, Benedictine D.O.M., Ananassaft, Grenadinesirup, Limettensaft, Angustura-Bitter, Maraschino-Kirsche", "price": "9,00" }
+  ],
+  "cocktailsNonAlcoholic": [
+    { "name": "Kirschkuss", "ingredients": "Ananassaft, Kirschsaft, Zitronensaft", "price": "6,00" },
+    { "name": "Virgin Caipirinha", "ingredients": "Limetten, Limettensaft, Rohrzucker und Ginger Ale", "price": "6,50" },
+    { "name": "Green Snake", "ingredients": "Maracujasaft, O-Saft, Zitronensaft, Limettensaft, Curaçao Blue", "price": "6,50" },
+    { "name": "Maracas", "ingredients": "O-Saft, Zitronensaft, Limettensaft, Ananassaft, Mandelsirup", "price": "6,50" },
+    { "name": "Virgin Uptown Colada", "ingredients": "Piña Colada ohne Alkohol", "price": "7,00" }
+  ],
+  "softdrinks": {
+    "prices": { "0,2l": "3,00", "0,4l": "4,00" },
+    "items": ["Pepsi-Cola", "Pepsi-MAX", "7up", "Mirinda", "Spezi", "Tonic Water", "Bitter Lemon", "Ginger Ale"]
+  },
+  "juices": {
+    "prices": { "0,2l": "3,50", "0,4l": "4,50" },
+    "items": ["Orange", "Maracuja", "Kirsche", "Banane", "Ananas", "Rhabarber"]
+  },
+  "mineralWater": {
+    "brand": "MAGNUS",
+    "sizes": ["0,25l", "0,75l"],
+    "items": [
+      { "name": "mit leichter Kohlensäure", "prices": { "0,25l": "3,00", "0,75l": "5,50" } },
+      { "name": "ohne Kohlensäure", "prices": { "0,25l": "3,00", "0,75l": "5,50" } }
+    ],
+    "tapWater": { "note": "Leitungswasser on request", "price": "0,50", "per": "0,1l" }
+  }
+}

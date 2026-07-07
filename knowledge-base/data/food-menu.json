@@ -1,0 +1,84 @@
+{
+  "$comment": "UPTOWN Restaurant food menu. Verbatim from '2 TISCHSET Innenseite . 2026' placemat, captured 2026-07-07 from uptown-restaurant.de. Prices in EUR (string, German format). 'codes' = the menu's allergen/additive superscripts (legend not printed on the placemat). Do not invent values.",
+  "currency": "EUR",
+  "source": "2 TISCHSET Innenseite . 2026 .pdf",
+  "notes": {
+    "changeSurcharge": "1,50",
+    "halfPortion": "2/3 of price",
+    "sharingOrExtraCover": "2,00",
+    "doggyBagFee": "1,00",
+    "doggyBagExcludes": "All you can eat dishes",
+    "allergens": "List of allergens/additives available on request; ask staff. Legend not printed on placemat."
+  },
+  "categories": [
+    {
+      "title": "Vorspeisen & Salate",
+      "titleEn": "Starters & Salads",
+      "items": [
+        { "name": "Soljanka", "price": "6,50", "description": "Eine kräftige, leicht säuerlich-würzige Suppe mit Fleisch, Rauchwurst, Gurke, Kraut", "codes": "1,4,7" },
+        { "name": "Ein Oliven-Mix", "price": "6,50", "description": "Der schmackhaftesten Mittelmeer-Oliven", "codes": "12" },
+        { "name": "Knobi-Kräuterbrot", "price": "5,00", "description": "Garlic herb bread", "codes": "1,3,7,10" },
+        { "name": "Bruschetta Royal", "price": "6,50", "description": "Gebackenes Baguette mit Tomaten-Kräuter-Mix und Mozzarella-Würfeln mit Sour Cream", "codes": "1,3,7,10,12" },
+        { "name": "Nuss-Camembert", "price": "13,50", "description": "In Nuss-Brotpanierung gebacken, mit Preiselbeeren, Brot und Salatgarnitur", "codes": "1,3,4,7,12" },
+        { "name": "Gryllefjorder Lachs", "price": "14,50", "description": "Mild geräucherter Norweger-Lachs auf Kartoffelpuffer mit Sahne Schmand und Kaviar", "codes": "1,3,5,7,9,10" },
+        { "name": "Scampi Louisiana", "price": "14,50", "description": "Würzig gebratene Garnelen in einer feurigen Cajun-Rahmsauce mit Gemüse Julienne und Baguette", "codes": "1,2,4,7" },
+        { "name": "\"UPTOWN\" Caesar Salat", "price": "13,50", "description": "Romana Salat mit Caesar Dressing, Ei und eingelegten, sonnengetrockneten Tomaten, Kräuter Knoblauch-Croûtons und Spänen von Reggiano Parmesan", "codes": "1,3,7,9,10,12,13", "addOns": [ { "name": "mit Hähnchenbrust", "price": "+6,50" }, { "name": "mit Rindfleischstreifen", "price": "+7,50" } ] },
+        { "name": "Uptown Salat-Mix", "priceBySize": { "klein": "7,00", "groß": "9,50" }, "description": "Frischer Salat-Mix der Saison mit Dressing nach Wahl: Balsamico-Vinaigrette, American oder Essig & Öl", "codes": "1,3,12,13", "addOns": [ { "name": "mit gegrillter Hähnchenbrust", "price": "+6,50" }, { "name": "mit Thunfisch", "price": "+4,50" }, { "name": "mit 6 gegrillten Tiefseegarnelen", "price": "+8,50" }, { "name": "mit Schafkäse", "price": "+4,50" } ] }
+      ]
+    },
+    {
+      "title": "Smoke-Town-Ribs & BBQ",
+      "titleEn": "Ribs & BBQ",
+      "items": [
+        { "name": "Smoke-Town-Ribs", "price": "21,50", "description": "Sweet-Hawaii oder würzig-scharf — lange, marinierte Rauchrippen (ca. 650 g Frischgewicht), mit Cole Slaw, Honey-Baked-Beans und Ofenkartoffel mit Sour Cream", "codes": "1,3,7,9,10,11" },
+        { "name": "Smoke-Town-Ribs \"satt\"", "price": "23,50", "description": "\"All you can eat\", jeden Freitag und Samstag. Kein Doggy Bag.", "codes": "" },
+        { "name": "Chicken & Ribs", "price": "21,50", "description": "Marinierte Hähnchenschenkel mit Rückenstück und Räucherrippen in hausgemachten BBQ-Saucen, serviert mit Cole Slaw, Honey-Baked-Beans und Pommes", "codes": "1,3,5,7,9,10" },
+        { "name": "BBQ-Chicken-Honey-Chili", "price": "21,50", "description": "Marinierte Hähnchenschenkel mit Rückenstück (650 g) in einer würzigen, hausgemachten Honig-Chili-BBQ-Sauce, serviert mit Cole Slaw, Honey-Baked-Beans und Pommes", "codes": "1,3,7,9,10,12" },
+        { "name": "Pulled Pork Pie", "price": "19,50", "description": "Original Pulled Pork, ein Klassiker der nordamerikanischen BBQ-Küche, im Smoker gegart. Serviert mit Blätterteighaube, Cole Slaw, Honey-Baked-Beans und Kartoffelspalten mit Sour Cream", "codes": "1,3,5,9,10,11,13" }
+      ]
+    },
+    {
+      "title": "Hauptgerichte",
+      "titleEn": "Mains",
+      "items": [
+        { "name": "Schweinemedaillon le Havre", "price": "18,50", "description": "Auf frischen Gemüsestreifen mit leichter Estragon-Sahnesauce, Kartoffelgratin (aus heimischen- und Süßkartoffeln)", "codes": "1,3,7,9,10,12" },
+        { "name": "Limonen-Hähnchen", "price": "16,50", "description": "In Limonen-Pfeffer marinierte Hähnchenbrust mit leichter Limonen-Buttersauce auf Zucchinigemüse und Reis", "codes": "1,3,6,9,10,12" },
+        { "name": "Gourmet-Schnitzel", "price": "18,50", "description": "Zwei Schweinerücken-Schnitzel leicht paniert, serviert mit Trüffelbutter, Steinpilz-Sauce und Kartoffelgratin", "codes": "1,3,7,9,12" },
+        { "name": "Spinach Heaven", "price": "15,50", "description": "Frischer Blattspinat in Knoblauch-Rahmsauce mit Käse überbacken, dazu Knobi-Kräuterbrot", "codes": "1,3,7,9,10,12,13" },
+        { "name": "Afrikanischer Erdnusstopf", "price": "17,50", "description": "Schweinefiletstreifen mit Gemüsewürfeln in einer Tomaten-Erdnuss-Sauce, mit Kardamom verfeinert und Dampfreis", "codes": "5,9,12" },
+        { "name": "Toscana-Gemüse-Topf", "price": "14,50", "description": "Frischer Gemüse-Mix, leicht tomatisiert und mit Kräutern verfeinert, serviert mit Toscana-Kartoffeln", "codes": "1,3,6,7,9,12", "addOns": [ { "name": "mit Hähnchenbruststreifen", "price": "+6,50" } ] }
+      ]
+    },
+    {
+      "title": "Steaks vom Grill",
+      "titleEn": "Grilled Steaks",
+      "intro": "NY-Strip-Steak — bester Schnitt vom argentinischen Rumpsteak, fein mariniert und gut abgehangen. Alle Steaks mit Toscana-Kartoffeln und frischer Salatbeilage.",
+      "introCodes": "1,7,9",
+      "items": [
+        { "name": "Arizona", "priceBySize": { "250g": "23,50", "500g": "32,50" }, "description": "mit einer würzigen, hausgemachten Arizona-Steakbutter" },
+        { "name": "Madagaskar", "priceBySize": { "250g": "23,50", "500g": "32,50" }, "description": "mit einer feurigen, mit Rum verfeinerten Pfeffersauce" },
+        { "name": "Valentino", "priceBySize": { "250g": "24,00", "500g": "34,50" }, "description": "mit frischen, in Butter gebratenen Pilzen und Zwiebeln" },
+        { "name": "Surf and Turf", "priceBySize": { "250g": "27,50", "500g": "37,50" }, "description": "mit in Limonen-Butter gebratenen Garnelen" },
+        { "name": "Bison-Burger", "priceBySize": { "180g": "17,50", "360g": "21,50" }, "description": "Rustikales Burger-Bun mit Salsa-Majo, Salat, Tomate, Gurke, Speck, karamellisierten Zwiebeln, Guacamole, Cheddar-Käse und BBQ-Burger-Sauce mit gegrilltem Bisonfleisch, dazu Pommes", "codes": "1,3,5,9" },
+        { "name": "Uptown-Grill-Teller", "price": "26,50", "description": "350 g Fleisch mit Rumpsteak, Hähnchenbrust, Schweinesteak, Speck und Räucherrippe auf frischem Chiligemüse und Toscana-Kartoffeln, serviert mit Tobago-Sauce", "codes": "1,3,7,9,10,12" }
+      ]
+    },
+    {
+      "title": "Nachos & Pasta",
+      "titleEn": "Nachos & Pasta",
+      "items": [
+        { "name": "Nachos Classico", "price": "12,50", "description": "Gebackene Tortilla Chips mit mexikanischem Gemüsemix, mit Käse überbacken, dazu Salsa und Sour Cream", "codes": "1,3,7,9,10,12", "addOns": [ { "name": "mit Thunfisch, Zwiebeln, Oliven, Peperoni", "price": "+4,50", "codes": "4,12" }, { "name": "mit Hähnchenbruststreifen", "price": "+6,50" }, { "name": "mit Rindfleischstreifen", "price": "+7,50" } ] },
+        { "name": "Spaghetti-Pesto", "price": "13,50", "description": "Mit grünem Pesto aus Parmesan, Nusskernen, frischen Kräutern, Knoblauch und Olivenöl", "codes": "7,8,12" },
+        { "name": "Spaghetti Scampi Lafayet", "price": "19,50", "description": "Sautierte Garnelen mit Gemüse Julienne, serviert in einer würzigen Langusten-Cajun-Rahmsauce und frischem Parmesan", "codes": "1,7,12" }
+      ]
+    },
+    {
+      "title": "Desserts",
+      "titleEn": "Desserts",
+      "items": [
+        { "name": "Gemischtes Eis", "price": "4,50", "description": "3 Kugeln Eis und Waffel", "codes": "1,5,7,8,12", "addOns": [ { "name": "mit Sahne", "price": "+0,50" }, { "name": "mit Erdbeer-, Karamell- oder Schokosauce", "price": "+1,00" }, { "name": "mit Eierlikör", "price": "+2,00" } ] },
+        { "name": "Apfel-Cranberry-Karamell-Crumble", "price": "6,50", "description": "Mit Streuseln überbackene Äpfel und Cranberry-Stücke, mit Karamellsauce verfeinert und mit hausgemachtem Mandel-Honig-Eis", "codes": "1,3,5,7,8,12" }
+      ]
+    }
+  ]
+}

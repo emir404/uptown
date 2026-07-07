@@ -1,0 +1,67 @@
+{
+  "$comment": "UPTOWN Restaurant core facts. Verbatim from uptown-restaurant.de (impressum, anfahrt, oeffnungszeiten, partyservice) + drinks placemat. Captured 2026-07-07. Do not invent values.",
+  "name": "UPTOWN Restaurant & Bistro",
+  "established": 2007,
+  "legalEntity": "UPTOWN, Peter Witt und Ulf Bierbaum GbR",
+  "owners": ["Peter Witt", "Ulf Bierbaum"],
+  "website": "https://www.uptown-restaurant.de",
+  "contact": {
+    "street": "Kronsforder Allee 3a",
+    "postalCode": "23560",
+    "city": "Lübeck",
+    "country": "Germany",
+    "phone": "0451 / 707 95 65",
+    "phoneNote": "staffed from 15:00 (ab 15 Uhr); call for table reservations",
+    "email": "uptown@t-online.de"
+  },
+  "location": {
+    "landmark": "in unmittelbarer Nähe vom Mühlentorteller",
+    "coordinates": null,
+    "note": "No map/coordinates published on the site (Google Maps module not active on anfahrt.html)."
+  },
+  "openingHours": {
+    "note": "Authoritative — from oeffnungszeiten.html; confirmed by drinks placemat 'Sonntag + Montag RUHETAG'.",
+    "timezone": "Europe/Berlin",
+    "days": [
+      { "day": "Monday",    "open": false, "hours": null,          "kitchen": null },
+      { "day": "Tuesday",   "open": true,  "hours": "16:00–21:00", "kitchen": "16:00–20:30" },
+      { "day": "Wednesday", "open": true,  "hours": "16:00–21:00", "kitchen": "16:00–20:30" },
+      { "day": "Thursday",  "open": true,  "hours": "16:00–21:00", "kitchen": "16:00–20:30" },
+      { "day": "Friday",    "open": true,  "hours": "16:00–22:00", "kitchen": "16:00–21:30" },
+      { "day": "Saturday",  "open": true,  "hours": "16:00–22:00", "kitchen": "16:00–21:30" },
+      { "day": "Sunday",    "open": false, "hours": null,          "kitchen": null }
+    ]
+  },
+  "wifi": { "guestLogin": "UPTOWN GAST", "password": "moinmoin" },
+  "partyService": {
+    "inHouseUpTo": 60,
+    "offSiteWithDeliveryUpTo": 50,
+    "eventTypes": ["Taufen", "Hochzeiten", "Konfirmationen", "Weihnachtsfeiern", "Geburtstagsfeiern", "Seminare"],
+    "description": "Homemade specialities plus matching drinks, at the customer's home or in the restaurant, tailored to their wishes.",
+    "booking": "Phone 0451 / 707 95 65, email uptown@t-online.de, or in person at Kronsforder Allee 3a."
+  },
+  "policies": {
+    "paymentAccepted": ["MasterCard", "VISA"],
+    "noVaping": true,
+    "englishSpoken": true,
+    "changeSurchargeEUR": "1,50",
+    "halfPortion": "2/3 of price",
+    "sharingOrExtraCoverEUR": "2,00",
+    "doggyBagFeeEUR": "1,00",
+    "doggyBagExcludes": "All you can eat dishes",
+    "allergens": "List available on request; ask staff."
+  },
+  "siteNavigation": ["Vorspeisen - Salate", "Hauptgerichte", "Pasta", "Desserts", "Wochenkarte", "Weinkarte", "Aktionen", "Anfahrt", "Öffnungszeiten", "Partyservice", "Fotoalbum", "Impressum"],
+  "siteStatus": {
+    "cms": "CMS Made Simple",
+    "pastaPage": "under construction (in Bearbeitung)",
+    "dessertsPage": "under construction (in Bearbeitung)",
+    "fotoalbumPage": "not available (zur Zeit nicht verfügbar)",
+    "menuDelivery": "The real menu is published only as placemat ('Tischset') PDFs/images, not as page text."
+  },
+  "promotions": [
+    { "name": "Smoke-Town-Ribs satt", "cadence": "every Friday and Saturday", "priceEUR": "23,50", "unit": "p.P.", "notes": "All you can eat; no doggy bag; no voucher redemption" },
+    { "name": "Scampi \"satt\"", "cadence": "first Tuesday of every month", "priceEUR": "32,50", "unit": "p.P.", "notes": "2-hour all-you-can-eat prawns; booking + deposit required; prepay only; 2026 dates: 3 Feb, 3 Mar, 7 Apr, 5 May, 2 Jun, 7 Jul, 4 Aug, 1 Sep, 6 Oct, 3 Nov, 1 Dec" },
+    { "name": "Caipi-Donnerstag", "cadence": "every Thursday from 20:00", "priceEUR": "5,00", "unit": "per Caipirinha", "notes": "Caipirinha special (normally 6,50)" }
+  ]
+}
