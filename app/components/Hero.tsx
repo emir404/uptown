@@ -23,6 +23,9 @@ const NAV_LINKS = [
   { label: "KONTAKT", href: "#kontakt" },
 ];
 
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=UPTOWN+Restaurant+Kronsforder+Allee+3a+23560+L%C3%BCbeck";
+
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const reducedMotion = useReducedMotionSafe();
@@ -77,62 +80,47 @@ export function Hero() {
           Uptown
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex">
-          {NAV_LINKS.map((link) =>
-            link.href.startsWith("/") ? (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="py-2 font-semibold text-[16px] tracking-[-0.16px] leading-[1.3] text-foreground transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </Link>
-            ) : (
-              <a
-                key={link.label}
-                href={link.href}
-                className="py-2 font-semibold text-[16px] tracking-[-0.16px] leading-[1.3] text-foreground transition-opacity hover:opacity-70"
-              >
-                {link.label}
-              </a>
-            ),
-          )}
-        </nav>
+        <div className="flex items-center gap-5 sm:gap-7">
+          <MotionLink
+            href="/reservierung"
+            className="hidden h-[42px] items-center justify-center bg-accent px-6 font-semibold text-[16px] uppercase tracking-[-0.16px] text-background lg:flex"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.97 }}
+            transition={{ type: "spring", stiffness: 400, damping: 20 }}
+          >
+            Tisch reservieren
+          </MotionLink>
 
-        <MotionLink
-          href="/reservierung"
-          className="hidden h-[42px] items-center justify-center bg-accent px-6 font-semibold text-[16px] uppercase tracking-[-0.16px] text-background lg:flex"
-          whileHover={{ scale: 1.04 }}
-          whileTap={{ scale: 0.97 }}
-          transition={{ type: "spring", stiffness: 400, damping: 20 }}
-        >
-          Tisch reservieren
-        </MotionLink>
-
-        {/* Mobile hamburger */}
-        <button
-          type="button"
-          aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
-          aria-expanded={menuOpen}
-          onClick={() => setMenuOpen((v) => !v)}
-          className="flex h-11 w-11 flex-col items-center justify-center gap-1.5 lg:hidden"
-        >
-          <motion.span
-            className="block h-[2px] w-6 bg-foreground"
-            animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
-          />
-          <motion.span
-            className="block h-[2px] w-6 bg-foreground"
-            animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
-          />
-        </button>
+          {/* Sandwich menu — available on every screen size */}
+          <button
+            type="button"
+            aria-label={menuOpen ? "Menü schließen" : "Menü öffnen"}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+            className="flex items-center gap-2.5 py-2 text-foreground transition-opacity hover:opacity-70"
+          >
+            <span className="hidden text-[14px] font-semibold uppercase tracking-[0.16em] sm:inline">
+              {menuOpen ? "Schließen" : "Menü"}
+            </span>
+            <span className="flex h-6 w-7 flex-col items-center justify-center gap-1.5">
+              <motion.span
+                className="block h-[2px] w-6 bg-foreground"
+                animate={menuOpen ? { rotate: 45, y: 4 } : { rotate: 0, y: 0 }}
+              />
+              <motion.span
+                className="block h-[2px] w-6 bg-foreground"
+                animate={menuOpen ? { rotate: -45, y: -4 } : { rotate: 0, y: 0 }}
+              />
+            </span>
+          </button>
+        </div>
       </motion.header>
 
-      {/* Mobile menu overlay */}
+      {/* Full-screen menu overlay — opens on every screen size */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-8 bg-background/95 lg:hidden"
+            className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 bg-background/97 backdrop-blur-sm sm:gap-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -142,7 +130,7 @@ export function Hero() {
               const variantProps = {
                 onClick: () => setMenuOpen(false),
                 className:
-                  "py-2 font-semibold text-[20px] tracking-[-0.2px] text-foreground",
+                  "py-2 font-serif uppercase tracking-[0.06em] text-foreground transition-colors hover:text-accent text-[26px] sm:text-[34px]",
                 initial: { opacity: 0, y: 16 },
                 animate: { opacity: 1, y: 0 },
                 transition: {
@@ -206,7 +194,14 @@ export function Hero() {
         transition={{ duration: 1, delay: 1.5, ease: EASE }}
       >
         <p>DI–DO 16–21 · FR/SA 16–22 · SO + MO RUHETAG</p>
-        <p className="uppercase">Kronsforder Allee 3a, 23560 Lübeck</p>
+        <a
+          href={MAPS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="uppercase underline-offset-4 transition-colors hover:text-accent hover:underline"
+        >
+          Kronsforder Allee 3a, 23560 Lübeck
+        </a>
         <p>GRILL · SMOKEHOUSE · BAR</p>
       </motion.div>
     </section>

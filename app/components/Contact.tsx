@@ -120,7 +120,14 @@ export function Contact() {
               </span>
             </StaggerItem>
             <StaggerItem y={16}>
-              <span>Kronsforder Allee 3a, 23560 Lübeck</span>
+              <a
+                href={MAPS_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+              >
+                Kronsforder Allee 3a, 23560 Lübeck
+              </a>
             </StaggerItem>
             <StaggerItem y={16}>
               <span className="hidden text-foreground/30 sm:inline" aria-hidden>
@@ -250,11 +257,16 @@ export function Contact() {
           <p className="font-serif text-[17px] uppercase tracking-[0.16em] text-foreground">
             Uptown
           </p>
-          <p className="mt-2 text-[15px] font-medium leading-[1.6] text-foreground/80">
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-2 block text-[15px] font-medium leading-[1.6] text-foreground/80 underline-offset-4 transition-colors hover:text-accent hover:underline"
+          >
             Kronsforder Allee 3a
             <br />
             23560 Lübeck · Nahe Mühlentorteller
-          </p>
+          </a>
           <a
             href={MAPS_URL}
             target="_blank"

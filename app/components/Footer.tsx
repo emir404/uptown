@@ -16,6 +16,9 @@ import { useReducedMotionSafe } from "./Reveal";
 const MARQUEE_TEXT =
   "Grill · Smokehouse · Bar · Steaks · Ribs · Lübeck · seit 2007 · ";
 
+const MAPS_URL =
+  "https://www.google.com/maps/search/?api=1&query=UPTOWN+Restaurant+Kronsforder+Allee+3a+23560+L%C3%BCbeck";
+
 const HOURS_SUMMARY = [
   { days: "Dienstag – Donnerstag", time: "16:00 – 21:00" },
   { days: "Freitag – Samstag", time: "16:00 – 22:00" },
@@ -126,7 +129,14 @@ export function Footer({ curtain = true }: { curtain?: boolean }) {
               <p className="mt-5 max-w-[36ch] text-[14px] font-medium leading-[1.6] text-muted">
                 Restaurant &amp; Bistro · Grill · Smokehouse · Bar
                 <br />
-                Kronsforder Allee 3a, 23560 Lübeck · Nahe Mühlentorteller
+                <a
+                  href={MAPS_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                >
+                  Kronsforder Allee 3a, 23560 Lübeck · Nahe Mühlentorteller
+                </a>
               </p>
               <a
                 href="mailto:uptown@t-online.de"
