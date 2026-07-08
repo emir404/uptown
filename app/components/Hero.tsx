@@ -9,7 +9,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "motion/react";
-import { Wordmark } from "./Wordmark";
+import { LogoMark, Wordmark } from "./Wordmark";
 import { Diamond } from "./Brand";
 import { EASE, useReducedMotionSafe } from "./Reveal";
 
@@ -59,7 +59,7 @@ export function Hero() {
       >
         <Image
           src="/images/hero.jpg"
-          alt="Die geschwungene rote Bar im UPTOWN bei Nacht mit warm beleuchteten Flaschenregalen und Kerzen"
+          alt="Die geschwungene rote Bar und der bordeauxrote Torbogen im UPTOWN am Abend, mit Kerzen und warmem Lampenlicht"
           fill
           preload
           sizes="100vw"
@@ -75,11 +75,8 @@ export function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 1.2, ease: EASE }}
       >
-        <a
-          href="#"
-          className="font-serif text-[18px] uppercase tracking-[0.18em] leading-[1.3] text-foreground"
-        >
-          Uptown
+        <a href="#" className="flex items-center py-1">
+          <LogoMark className="h-[18px] w-auto sm:h-[21px]" />
         </a>
 
         <div className="flex items-center gap-5 sm:gap-7">

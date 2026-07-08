@@ -13,6 +13,7 @@ import {
 } from "motion/react";
 import { useReducedMotionSafe } from "./Reveal";
 import { Diamond, SkylineFrieze } from "./Brand";
+import { LogoMark } from "./Wordmark";
 
 const MARQUEE_ITEMS = [
   "Restaurant & Bistro",
@@ -145,10 +146,8 @@ export function Footer({ curtain = true }: { curtain?: boolean }) {
           <div className="grid gap-10 sm:grid-cols-2 sm:gap-x-12 lg:grid-cols-[1.5fr_1fr_1fr] lg:gap-x-16">
             {/* Brand */}
             <div>
-              <p className="font-serif text-[40px] uppercase leading-none tracking-[0.12em] text-foreground">
-                Uptown
-              </p>
-              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold/90">
+              <LogoMark className="h-[30px] w-auto" />
+              <p className="mt-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold/90">
                 Restaurant &amp; Bistro <Diamond className="mx-1.5" /> seit
                 2007
               </p>

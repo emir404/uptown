@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Footer } from "./Footer";
+import { LogoMark } from "./Wordmark";
 
 export function LegalPage({
   title,
@@ -12,10 +13,8 @@ export function LegalPage({
     <div className="flex min-h-svh flex-col bg-background">
       <header className="flex items-center justify-between px-6 pt-8 sm:px-10 lg:px-[min(10.5vw,152px)] lg:pt-14">
         <Link href="/" className="flex flex-col py-2">
-          <span className="font-serif text-[18px] uppercase tracking-[0.18em] text-foreground">
-            Uptown
-          </span>
-          <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/80">
+          <LogoMark className="h-[17px] w-auto" />
+          <span className="mt-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/80">
             Restaurant &amp; Bistro
           </span>
         </Link>

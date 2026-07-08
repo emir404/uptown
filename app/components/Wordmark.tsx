@@ -2,13 +2,18 @@
 
 import { motion } from "motion/react";
 import { EASE, useReducedMotionSafe } from "./Reveal";
+import { LOGO_LETTERS, LOGO_VIEWBOX, type LogoPath } from "./logoPaths";
 
-const LINES = ["Uptown"] as const;
+function LetterPaths({ paths }: { paths: LogoPath[] }) {
+  return paths.map((p, i) => (
+    <path key={i} fill={p.fill} fillRule={p.fillRule} d={p.d} />
+  ));
+}
 
 /**
- * Typographic wordmark for UPTOWN Restaurant & Bistro. Renders the name in
- * the Bodoni Moda display serif with a per-letter reveal. Colour is inherited
- * via `currentColor` (hero uses `text-foreground`, footer uses `text-accent`).
+ * The UPTOWN sign logo (vectorized from the facade sign) with a per-letter
+ * reveal: each letter rises and settles like the hand-cut sign letters being
+ * mounted, staggered left to right.
  */
 export function Wordmark({
   className,
@@ -23,50 +28,57 @@ export function Wordmark({
   const reducedMotion = useReducedMotionSafe();
   const visible = play === undefined || play;
 
-  let letterIndex = 0;
-
   return (
-    <div
-      className={`flex flex-col items-center justify-center font-serif uppercase leading-[0.92] tracking-[0.1em] ${className ?? ""}`}
+    <svg
+      viewBox={LOGO_VIEWBOX}
+      className={className}
       role="img"
       aria-label="Uptown Restaurant & Bistro"
     >
-      {LINES.map((line, lineIdx) => (
-        <span
-          key={line}
-          aria-hidden
-          className="block whitespace-nowrap pl-[0.1em] text-[clamp(60px,16vw,180px)]"
-        >
-          {line.split("").map((char) => {
-            const i = letterIndex++;
-            return (
-              <motion.span
-                key={`${line}-${i}`}
-                className="inline-block"
-                initial={
-                  reducedMotion
-                    ? { opacity: 0 }
-                    : { opacity: 0, y: "40%", rotate: lineIdx % 2 ? 3 : -3 }
-                }
-                animate={
-                  visible
-                    ? { opacity: 1, y: 0, rotate: 0 }
-                    : reducedMotion
-                      ? { opacity: 0 }
-                      : { opacity: 0, y: "40%", rotate: lineIdx % 2 ? 3 : -3 }
-                }
-                transition={{
-                  duration: reducedMotion ? 0.6 : 0.9,
-                  delay: delay + i * 0.05,
-                  ease: EASE,
-                }}
-              >
-                {char}
-              </motion.span>
-            );
-          })}
-        </span>
+      {LOGO_LETTERS.map((letter, i) => {
+        const hidden = reducedMotion
+          ? { opacity: 0 }
+          : { opacity: 0, y: 44, rotate: i % 2 ? 2.5 : -2.5 };
+        return (
+          <motion.g
+            key={letter.name}
+            initial={hidden}
+            animate={visible ? { opacity: 1, y: 0, rotate: 0 } : hidden}
+            transition={{
+              duration: reducedMotion ? 0.6 : 0.9,
+              delay: delay + i * 0.07,
+              ease: EASE,
+            }}
+            style={{ transformBox: "fill-box", transformOrigin: "50% 100%" }}
+          >
+            <LetterPaths paths={letter.paths} />
+          </motion.g>
+        );
+      })}
+    </svg>
+  );
+}
+
+/** Static sign logo for nav and footer brand spots. */
+export function LogoMark({
+  className,
+  label = "Uptown",
+}: {
+  className?: string;
+  label?: string;
+}) {
+  return (
+    <svg
+      viewBox={LOGO_VIEWBOX}
+      className={className}
+      role="img"
+      aria-label={label}
+    >
+      {LOGO_LETTERS.map((letter) => (
+        <g key={letter.name}>
+          <LetterPaths paths={letter.paths} />
+        </g>
       ))}
-    </div>
+    </svg>
   );
 }
