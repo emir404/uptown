@@ -1,11 +1,20 @@
 "use client";
 
-import { motion } from "motion/react";
-import { MENU, FULL_MENU_URL } from "../data/menu";
+import { useId, useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
+import { MENU, FULL_MENU_URL, type MenuItem } from "../data/menu";
 import { Reveal, TextLineReveal, EASE, useReducedMotionSafe } from "./Reveal";
+
+function priceLabel(item: MenuItem): string {
+  return item.sizes
+    ? item.sizes.map((s) => `${s.label} ${s.price} €`).join(" · ")
+    : `${item.price} €`;
+}
 
 export function Menu() {
   const reducedMotion = useReducedMotionSafe();
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const idPrefix = useId();
 
   return (
     <section
@@ -43,62 +52,126 @@ export function Menu() {
         </Reveal>
       </div>
 
-      <div className="mt-14 grid gap-x-16 gap-y-12 lg:mt-20 lg:grid-cols-2">
-        {MENU.map((category, ci) => (
-          <motion.div
-            key={category.title}
-            initial={{ opacity: 0, y: reducedMotion ? 0 : 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.9, delay: (ci % 2) * 0.1, ease: EASE }}
-          >
-            <div className="flex items-baseline gap-3 border-b border-border pb-4">
-              <h3 className="font-serif text-[26px] leading-none text-foreground">
-                {category.title}
-              </h3>
-              <span className="text-[13px] font-semibold uppercase tracking-[0.14em] text-accent">
-                {category.en}
-              </span>
-            </div>
-
-            {category.note && (
-              <p className="mt-4 max-w-[52ch] text-[14px] font-medium italic leading-[1.5] text-muted">
-                {category.note}
-              </p>
-            )}
-
-            <ul className="mt-6 flex flex-col gap-5">
-              {category.items.map((item) => (
-                <li key={item.name}>
-                  <div className="flex items-baseline gap-3">
-                    <span className="font-semibold text-[17px] tracking-[-0.17px] text-foreground">
-                      {item.name}
-                    </span>
+      {/* Category accordion — one category open at a time */}
+      <div className="mt-12 border-t border-border lg:mt-16">
+        {MENU.map((category, ci) => {
+          const open = openIndex === ci;
+          const buttonId = `${idPrefix}-menu-button-${ci}`;
+          const panelId = `${idPrefix}-menu-panel-${ci}`;
+          return (
+            <motion.div
+              key={category.title}
+              className="border-b border-border"
+              initial={{ opacity: 0, y: reducedMotion ? 0 : 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.7, delay: 0.04 * ci, ease: EASE }}
+            >
+              <h3>
+                <button
+                  type="button"
+                  id={buttonId}
+                  aria-expanded={open}
+                  aria-controls={panelId}
+                  onClick={() => setOpenIndex(open ? null : ci)}
+                  className="group flex min-h-14 w-full items-center gap-4 py-6 text-left sm:gap-6"
+                >
+                  <span className="flex min-w-0 flex-1 flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-4">
                     <span
-                      aria-hidden
-                      className="min-w-6 flex-1 translate-y-[-3px] border-b border-dotted border-foreground/25"
-                    />
-                    <span className="shrink-0 font-semibold tabular-nums text-[17px] text-accent">
-                      {item.sizes
-                        ? item.sizes
-                            .map((s) => `${s.label} ${s.price} €`)
-                            .join(" · ")
-                        : `${item.price} €`}
+                      className={`font-serif leading-[1.1] text-[clamp(24px,3vw,34px)] transition-colors duration-300 ${
+                        open ? "text-accent" : "text-foreground group-hover:text-accent"
+                      }`}
+                    >
+                      {category.title}
                     </span>
-                  </div>
-                  {item.description && (
-                    <p className="mt-1 max-w-[44ch] text-[14px] font-medium leading-[1.5] text-muted">
-                      {item.description}
-                    </p>
-                  )}
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        ))}
+                    <span className="text-[12px] font-semibold uppercase tracking-[0.14em] text-muted sm:text-[13px]">
+                      {category.en}
+                    </span>
+                  </span>
+                  <span className="hidden shrink-0 text-[13px] font-semibold uppercase tracking-[0.12em] tabular-nums text-muted sm:inline">
+                    {category.items.length}{" "}
+                    {category.items.length === 1 ? "Gericht" : "Gerichte"}
+                  </span>
+                  <motion.span
+                    aria-hidden
+                    className="flex h-9 w-9 shrink-0 items-center justify-center border border-border text-[15px] text-foreground"
+                    animate={{ rotate: open ? 180 : 0 }}
+                    transition={
+                      reducedMotion
+                        ? { duration: 0 }
+                        : { duration: 0.45, ease: EASE }
+                    }
+                  >
+                    ↓
+                  </motion.span>
+                </button>
+              </h3>
+
+              <AnimatePresence initial={false}>
+                {open && (
+                  <motion.div
+                    key="panel"
+                    id={panelId}
+                    role="region"
+                    aria-labelledby={buttonId}
+                    className="overflow-hidden"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={
+                      reducedMotion
+                        ? { duration: 0 }
+                        : {
+                            height: { duration: 0.55, ease: EASE },
+                            opacity: { duration: 0.35, ease: EASE },
+                          }
+                    }
+                  >
+                    {/* padding lives on the inner div so the height
+                        animation collapses cleanly */}
+                    <div className="pb-10">
+                      {category.note && (
+                        <p className="max-w-[60ch] text-[14px] font-medium italic leading-[1.5] text-muted">
+                          {category.note}
+                        </p>
+                      )}
+                      <ul
+                        className={`grid gap-x-16 gap-y-5 lg:grid-cols-2 ${
+                          category.note ? "mt-6" : ""
+                        }`}
+                      >
+                        {category.items.map((item) => (
+                          <li key={item.name}>
+                            <div className="flex items-baseline gap-3">
+                              <span className="font-semibold text-[17px] tracking-[-0.17px] text-foreground">
+                                {item.name}
+                              </span>
+                              <span
+                                aria-hidden
+                                className="min-w-6 flex-1 translate-y-[-3px] border-b border-dotted border-foreground/25"
+                              />
+                              <span className="shrink-0 text-right font-semibold tabular-nums text-[16px] text-accent sm:text-[17px]">
+                                {priceLabel(item)}
+                              </span>
+                            </div>
+                            {item.description && (
+                              <p className="mt-1 max-w-[44ch] text-[14px] font-medium leading-[1.5] text-muted">
+                                {item.description}
+                              </p>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </motion.div>
+          );
+        })}
       </div>
 
-      <Reveal delay={0.1} className="mt-14">
+      <Reveal delay={0.1} className="mt-12">
         <p className="max-w-[72ch] text-[14px] font-medium leading-[1.6] text-muted">
           Jede Änderung berechnen wir mit 1,50 € · Halbe Portion 2/3 des
           Preises · Gerichte teilen oder extra Gedeck 2,00 € · Eine Liste der

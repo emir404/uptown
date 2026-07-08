@@ -43,7 +43,7 @@ export function Contact() {
         aria-hidden
         className="pointer-events-none absolute -right-[2vw] top-8 select-none font-semibold uppercase leading-none tracking-[-0.02em] text-transparent text-[clamp(120px,22vw,340px)]"
         style={{
-          WebkitTextStroke: "1.5px rgba(245,247,251,0.08)",
+          WebkitTextStroke: "1.5px color-mix(in oklab, var(--foreground) 8%, transparent)",
           y: reducedMotion ? 0 : ghostY,
         }}
       >

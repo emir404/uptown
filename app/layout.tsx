@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Manrope, Bodoni_Moda } from "next/font/google";
 import "./globals.css";
 import { SmoothScroll } from "./components/SmoothScroll";
@@ -29,6 +29,10 @@ export const metadata: Metadata = {
     siteName: "UPTOWN Restaurant & Bistro",
     images: [{ url: "/images/hero.jpg" }],
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#241a17",
 };
 
 export default function RootLayout({

@@ -89,7 +89,7 @@ export function Reservation() {
                       },
                     }}
                   >
-                    <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(36px,6.5vw,88px)]">
+                    <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(36px,4.6vw,64px)]">
                       0451&nbsp;707&nbsp;95&nbsp;65
                     </span>
                     <span
@@ -125,8 +125,8 @@ export function Reservation() {
                   transition={{ duration: 1.4, ease: EASE }}
                 >
                   <Image
-                    src="/images/about-1.jpg"
-                    alt="Kerzenbeleuchtete Sitzecke mit Lederbank im UPTOWN"
+                    src="/images/story-arch.jpg"
+                    alt="Der burgunderrote Torbogen im UPTOWN mit kerzenbeleuchteten Tischen"
                     fill
                     priority
                     sizes="(max-width: 1024px) 100vw, 42vw"

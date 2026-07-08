@@ -40,13 +40,35 @@ const SPECIALS = [
   },
 ];
 
+// Bar highlights, verbatim from the drinks placemat (03-drinks-menu.md).
+const BAR_HIGHLIGHTS = [
+  {
+    name: "Uptown Colada",
+    price: "9,00 €",
+    description:
+      "Ein sahniger Cocos-Traum mit einer Top-Secret-Rezeptur — das Original gibt es nur hier.",
+  },
+  {
+    name: "Caipirinha",
+    price: "6,50 €",
+    description:
+      "Cachaça, Limetten und Rohrzucker. Donnerstags ab 20 Uhr für 5,00 €.",
+  },
+  {
+    name: "Vom Fass",
+    price: "ab 3,50 €",
+    description:
+      "Duckstein, Grevensteiner, Holsten Pilsener und Erdinger Weizen — frisch gezapft.",
+  },
+];
+
 export function Specials() {
   const reducedMotion = useReducedMotionSafe();
 
   return (
     <section
       id="aktionen"
-      className="relative overflow-clip bg-surface px-6 py-20 sm:px-10 lg:px-[min(10.5vw,152px)] lg:py-[120px]"
+      className="theme-wine relative overflow-clip bg-background px-6 py-20 sm:px-10 lg:px-[min(10.5vw,152px)] lg:py-[120px]"
     >
       <div className="max-w-[560px]">
         <Reveal y={16}>
@@ -96,7 +118,40 @@ export function Specials() {
         ))}
       </div>
 
-      <Reveal delay={0.15} className="mt-8">
+      {/* Aus der Bar — verbatim from the drinks placemat
+          (knowledge-base/03-drinks-menu.md) */}
+      <div className="mt-16 border-t border-border pt-10 lg:mt-20">
+        <Reveal y={16}>
+          <p className="text-[13px] font-semibold uppercase tracking-[0.14em] text-accent sm:text-[14px]">
+            Aus der Bar
+          </p>
+        </Reveal>
+        <div className="mt-6 grid gap-8 sm:grid-cols-3 lg:gap-12">
+          {BAR_HIGHLIGHTS.map((drink, i) => (
+            <motion.div
+              key={drink.name}
+              initial={{ opacity: 0, y: reducedMotion ? 0 : 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.7, delay: i * 0.08, ease: EASE }}
+            >
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="font-serif text-[21px] leading-[1.2] text-foreground sm:text-[23px]">
+                  {drink.name}
+                </h3>
+                <p className="shrink-0 font-serif tabular-nums text-[20px] leading-none text-foreground">
+                  {drink.price}
+                </p>
+              </div>
+              <p className="mt-2 max-w-[36ch] text-[14px] font-medium leading-[1.55] text-muted">
+                {drink.description}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      <Reveal delay={0.15} className="mt-10">
         <p className="max-w-[72ch] text-[13px] font-medium leading-[1.6] text-muted">
           Scampi „satt“ nur mit Vorkasse · Keine Gutschein-Einlösung bei
           Sonder-Aktionen · Kein Doggy Bag bei „All you can eat“ · Termine und

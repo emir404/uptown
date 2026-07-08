@@ -15,9 +15,10 @@ import { EASE, useReducedMotionSafe } from "./Reveal";
 const MotionLink = motion.create(Link);
 
 const NAV_LINKS = [
+  { label: "GALERIE", href: "#galerie" },
+  { label: "ÜBER UNS", href: "#ueber-uns" },
   { label: "SPEISEKARTE", href: "#speisekarte" },
   { label: "AKTIONEN", href: "#aktionen" },
-  { label: "ÜBER UNS", href: "#ueber-uns" },
   { label: "ÖFFNUNGSZEITEN", href: "#oeffnungszeiten" },
   { label: "RESERVIEREN", href: "/reservierung" },
   { label: "KONTAKT", href: "#kontakt" },
@@ -57,7 +58,7 @@ export function Hero() {
       >
         <Image
           src="/images/hero.jpg"
-          alt="Kerzenbeleuchteter Gastraum im UPTOWN mit Blick auf den offenen Grill"
+          alt="Die geschwungene rote Bar im UPTOWN bei Nacht mit warm beleuchteten Flaschenregalen und Kerzen"
           fill
           priority
           sizes="100vw"
