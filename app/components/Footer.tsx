@@ -12,9 +12,16 @@ import {
   useVelocity,
 } from "motion/react";
 import { useReducedMotionSafe } from "./Reveal";
+import { Diamond, SkylineFrieze } from "./Brand";
 
-const MARQUEE_TEXT =
-  "Grill · Smokehouse · Bar · Steaks · Ribs · Lübeck · seit 2007 · ";
+const MARQUEE_ITEMS = [
+  "Restaurant & Bistro",
+  "Steaks",
+  "Ribs",
+  "Cocktails",
+  "Lübeck",
+  "seit 2007",
+];
 
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=UPTOWN+Restaurant+Kronsforder+Allee+3a+23560+L%C3%BCbeck";
@@ -58,7 +65,7 @@ function VelocityMarquee() {
   return (
     <div className="border-y border-border py-5 sm:py-7">
       <p className="sr-only">
-        Grill, Smokehouse und Bar in Lübeck — seit 2007.
+        UPTOWN Restaurant und Bistro in Lübeck — seit 2007.
       </p>
       <div aria-hidden className="overflow-hidden whitespace-nowrap">
         <motion.div className="flex w-max whitespace-nowrap" style={{ x }}>
@@ -67,7 +74,12 @@ function VelocityMarquee() {
               key={i}
               className="shrink-0 font-serif uppercase leading-none tracking-[0.06em] text-foreground text-[clamp(28px,5vw,56px)]"
             >
-              {MARQUEE_TEXT}
+              {MARQUEE_ITEMS.map((item) => (
+                <span key={item}>
+                  {item}
+                  <Diamond className="mx-[0.55em] text-gold" />
+                </span>
+              ))}
             </span>
           ))}
         </motion.div>
@@ -87,22 +99,32 @@ function FooterLabel({ children }: { children: React.ReactNode }) {
 export function Footer({ curtain = true }: { curtain?: boolean }) {
   const footerRef = useRef<HTMLElement>(null);
 
-  // The curtain reveal only works when the whole footer fits in the viewport;
-  // otherwise its top (contact/legal links) would be unreachable.
-  const [fitsViewport, setFitsViewport] = useState(true);
+  // Curtain reveal only on desktop-sized viewports (mobile browser toolbars
+  // make innerHeight unreliable, leaving the z-10 page column over the footer
+  // and swallowing its clicks) and only when the whole footer fits — otherwise
+  // its top (contact/legal links) would be unreachable.
+  const [canCurtain, setCanCurtain] = useState(false);
 
   useEffect(() => {
+    const mql = window.matchMedia("(min-width: 1024px)");
     const check = () => {
-      setFitsViewport(
-        (footerRef.current?.offsetHeight ?? 0) <= window.innerHeight,
+      setCanCurtain(
+        mql.matches &&
+          (footerRef.current?.offsetHeight ?? Infinity) <= window.innerHeight,
       );
     };
     check();
+    // the footer can grow after webfonts settle — re-measure
+    document.fonts?.ready.then(check).catch(() => {});
     window.addEventListener("resize", check);
-    return () => window.removeEventListener("resize", check);
+    mql.addEventListener("change", check);
+    return () => {
+      window.removeEventListener("resize", check);
+      mql.removeEventListener("change", check);
+    };
   }, []);
 
-  const sticky = curtain && fitsViewport;
+  const sticky = curtain && canCurtain;
 
   return (
     <>
@@ -126,14 +148,16 @@ export function Footer({ curtain = true }: { curtain?: boolean }) {
               <p className="font-serif text-[40px] uppercase leading-none tracking-[0.12em] text-foreground">
                 Uptown
               </p>
+              <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-gold/90">
+                Restaurant &amp; Bistro <Diamond className="mx-1.5" /> seit
+                2007
+              </p>
               <p className="mt-5 max-w-[36ch] text-[14px] font-medium leading-[1.6] text-muted">
-                Restaurant &amp; Bistro · Grill · Smokehouse · Bar
-                <br />
                 <a
                   href={MAPS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="underline-offset-4 transition-colors hover:text-foreground hover:underline"
+                  className="underline decoration-1 decoration-foreground/40 underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground/60"
                 >
                   Kronsforder Allee 3a, 23560 Lübeck · Nahe Mühlentorteller
                 </a>
@@ -150,6 +174,7 @@ export function Footer({ curtain = true }: { curtain?: boolean }) {
                   →
                 </span>
               </a>
+              <SkylineFrieze className="mt-8 h-8 w-full max-w-[320px] text-gold/40" />
             </div>
 
             {/* Kontakt */}

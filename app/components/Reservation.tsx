@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { Reveal, TextLineReveal, EASE, useReducedMotionSafe } from "./Reveal";
+import { GoldFrame } from "./Brand";
 import { Footer } from "./Footer";
 import {
   HOURS,
@@ -23,11 +24,13 @@ export function Reservation() {
     <div className="flex min-h-svh flex-col bg-background">
       {/* Header */}
       <header className="flex items-center justify-between px-6 pt-8 sm:px-10 lg:px-[min(10.5vw,152px)] lg:pt-14">
-        <Link
-          href="/"
-          className="inline-flex items-center py-2 font-serif text-[20px] uppercase tracking-[0.18em] text-foreground"
-        >
-          Uptown
+        <Link href="/" className="flex flex-col py-2">
+          <span className="font-serif text-[20px] uppercase tracking-[0.18em] text-foreground">
+            Uptown
+          </span>
+          <span className="mt-1 text-[10px] font-semibold uppercase tracking-[0.24em] text-gold/80">
+            Restaurant &amp; Bistro
+          </span>
         </Link>
         <Link
           href="/"
@@ -89,7 +92,7 @@ export function Reservation() {
                       },
                     }}
                   >
-                    <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(36px,4.6vw,64px)]">
+                    <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(30px,9vw,64px)] lg:text-[clamp(36px,4.6vw,64px)]">
                       0451&nbsp;707&nbsp;95&nbsp;65
                     </span>
                     <span
@@ -128,7 +131,7 @@ export function Reservation() {
                     src="/images/story-arch.jpg"
                     alt="Der burgunderrote Torbogen im UPTOWN mit kerzenbeleuchteten Tischen"
                     fill
-                    priority
+                    preload
                     sizes="(max-width: 1024px) 100vw, 42vw"
                     className="object-cover"
                   />
@@ -244,7 +247,7 @@ export function Reservation() {
             </Reveal>
 
             <motion.div
-              className="relative -mt-8 ml-4 mr-4 border-l-4 border-accent bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:ml-0 sm:mr-0 sm:mt-0 sm:max-w-[360px]"
+              className="relative -mt-8 ml-4 mr-4 bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:ml-0 sm:mr-0 sm:mt-0 sm:max-w-[360px]"
               initial={{
                 opacity: 0,
                 y: reducedMotion ? 0 : 60,
@@ -254,14 +257,18 @@ export function Reservation() {
               viewport={{ once: true, amount: 0.6 }}
               transition={{ type: "spring", stiffness: 90, damping: 16, delay: 0.2 }}
             >
+              <GoldFrame />
               <p className="font-serif text-[17px] uppercase tracking-[0.16em] text-foreground">
                 Uptown
+              </p>
+              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/80">
+                Restaurant &amp; Bistro
               </p>
               <a
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-2 block text-[15px] font-medium leading-[1.6] text-foreground/80 underline-offset-4 transition-colors hover:text-accent hover:underline"
+                className="mt-2 block text-[15px] font-medium leading-[1.6] text-foreground/80 underline decoration-1 decoration-foreground/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/60"
               >
                 Kronsforder Allee 3a
                 <br />

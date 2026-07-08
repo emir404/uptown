@@ -2,12 +2,23 @@
 
 import Image from "next/image";
 import { motion } from "motion/react";
+import { Diamond, GoldFrame } from "./Brand";
 import { Reveal, TextLineReveal, EASE, useReducedMotionSafe } from "./Reveal";
+
+type GalleryImage = {
+  src: string;
+  alt: string;
+  caption?: string;
+  className: string;
+  sizes: string;
+  /** Double gold-line frame overlay (the facade sign gets its own frame). */
+  framed?: boolean;
+};
 
 /* Real photos (guest shots, unified warm grade via scripts/prep-real-photos.mjs).
    Sources are 550–1200 px wide — the collage spans below keep every cell at or
    under ~1.2× native width; enlarging a cell will blur its photo. */
-const IMAGES = [
+const IMAGES: GalleryImage[] = [
   {
     src: "/images/real/dining-arch.jpg",
     alt: "Gastraum im UPTOWN mit dem burgunderroten Torbogen und New-York-Bildern an der Wand",
@@ -44,8 +55,10 @@ const IMAGES = [
   {
     src: "/images/real/facade-sign.jpg",
     alt: "Gelber UPTOWN-Schriftzug mit Lübecker Silhouette über den Fenstern",
+    caption: "Restaurant & Bistro — seit 2007",
     className: "col-span-2 aspect-[9/5] lg:col-span-6 lg:col-start-2",
     sizes: "(max-width: 1024px) 100vw, 46vw",
+    framed: true,
   },
   {
     src: "/images/real/entrance-day.jpg",
@@ -119,9 +132,11 @@ export function Gallery() {
                 sizes={image.sizes}
                 className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04] group-focus-visible:scale-[1.04]"
               />
+              {image.framed && <GoldFrame />}
             </div>
             {image.caption && (
               <figcaption className="mt-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-muted sm:text-[12px]">
+                <Diamond className="mr-2 text-gold" />
                 {image.caption}
               </figcaption>
             )}

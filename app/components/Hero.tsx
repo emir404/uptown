@@ -10,6 +10,7 @@ import {
   AnimatePresence,
 } from "motion/react";
 import { Wordmark } from "./Wordmark";
+import { Diamond } from "./Brand";
 import { EASE, useReducedMotionSafe } from "./Reveal";
 
 const MotionLink = motion.create(Link);
@@ -60,7 +61,7 @@ export function Hero() {
           src="/images/hero.jpg"
           alt="Die geschwungene rote Bar im UPTOWN bei Nacht mit warm beleuchteten Flaschenregalen und Kerzen"
           fill
-          priority
+          preload
           sizes="100vw"
           className="object-cover"
         />
@@ -121,45 +122,54 @@ export function Hero() {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="absolute inset-0 z-10 flex flex-col items-center justify-center gap-6 bg-background/97 backdrop-blur-sm sm:gap-8"
+            className="absolute inset-0 z-[15] flex flex-col overflow-y-auto overscroll-contain bg-background/97 pt-24 pb-[max(2rem,env(safe-area-inset-bottom))] backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.35, ease: EASE }}
           >
-            {NAV_LINKS.map((link, i) => {
-              const variantProps = {
-                onClick: () => setMenuOpen(false),
-                className:
-                  "py-2 font-serif uppercase tracking-[0.06em] text-foreground transition-colors hover:text-accent text-[26px] sm:text-[34px]",
-                initial: { opacity: 0, y: 16 },
-                animate: { opacity: 1, y: 0 },
-                transition: {
-                  duration: 0.5,
-                  delay: 0.1 + i * 0.06,
-                  ease: EASE,
-                },
-              } as const;
-              return link.href.startsWith("/") ? (
-                <MotionLink key={link.label} href={link.href} {...variantProps}>
-                  {link.label}
-                </MotionLink>
-              ) : (
-                <motion.a key={link.label} href={link.href} {...variantProps}>
-                  {link.label}
-                </motion.a>
-              );
-            })}
-            <MotionLink
-              href="/reservierung"
-              onClick={() => setMenuOpen(false)}
-              className="mt-4 flex h-12 items-center justify-center bg-accent px-8 font-semibold text-[16px] uppercase tracking-[-0.16px] text-background"
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
-            >
-              Tisch reservieren
-            </MotionLink>
+            {/* m-auto centers the stack when it fits and degrades to a
+                top-aligned scroll on short viewports (justify-center would
+                make the top links unreachable) */}
+            <nav className="m-auto flex flex-col items-center gap-3 px-6 sm:gap-6">
+              {NAV_LINKS.map((link, i) => {
+                const variantProps = {
+                  onClick: () => setMenuOpen(false),
+                  className:
+                    "py-2 font-serif uppercase tracking-[0.06em] text-foreground transition-colors hover:text-accent text-[26px] sm:text-[34px]",
+                  initial: { opacity: 0, y: 16 },
+                  animate: { opacity: 1, y: 0 },
+                  transition: {
+                    duration: 0.5,
+                    delay: 0.1 + i * 0.06,
+                    ease: EASE,
+                  },
+                } as const;
+                return link.href.startsWith("/") ? (
+                  <MotionLink
+                    key={link.label}
+                    href={link.href}
+                    {...variantProps}
+                  >
+                    {link.label}
+                  </MotionLink>
+                ) : (
+                  <motion.a key={link.label} href={link.href} {...variantProps}>
+                    {link.label}
+                  </motion.a>
+                );
+              })}
+              <MotionLink
+                href="/reservierung"
+                onClick={() => setMenuOpen(false)}
+                className="mt-3 flex h-12 items-center justify-center bg-accent px-8 font-semibold text-[16px] uppercase tracking-[-0.16px] text-background sm:mt-4"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4, ease: EASE }}
+              >
+                Tisch reservieren
+              </MotionLink>
+            </nav>
           </motion.div>
         )}
       </AnimatePresence>
@@ -181,14 +191,20 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.05, ease: EASE }}
           >
-            Restaurant &amp; Bistro · Lübeck · seit 2007
+            Restaurant &amp; Bistro
+            <Diamond className="mx-3 text-gold" />
+            Lübeck
+            <Diamond className="mx-3 text-gold" />
+            seit 2007
           </motion.p>
         </motion.div>
       </div>
 
       {/* Bottom info row */}
       <motion.div
-        className="relative z-10 flex flex-col gap-2 px-6 pb-8 font-semibold text-[13px] tracking-[-0.13px] leading-[1.3] text-foreground sm:flex-row sm:items-end sm:justify-between sm:px-10 sm:text-[16px] sm:tracking-[-0.16px] lg:px-[min(10.5vw,152px)] lg:pb-[80px]"
+        className={`relative z-10 flex flex-col gap-2 px-6 pb-8 font-semibold text-[13px] tracking-[-0.13px] leading-[1.3] text-foreground sm:flex-row sm:items-end sm:justify-between sm:px-10 sm:text-[16px] sm:tracking-[-0.16px] lg:px-[min(10.5vw,152px)] lg:pb-[80px] ${
+          menuOpen ? "invisible" : ""
+        }`}
         style={reducedMotion ? undefined : { opacity: infoOpacity }}
         initial={{ opacity: 0, y: reducedMotion ? 0 : 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -199,11 +215,11 @@ export function Hero() {
           href={MAPS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="uppercase underline-offset-4 transition-colors hover:text-accent hover:underline"
+          className="uppercase underline decoration-1 decoration-foreground/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/60"
         >
           Kronsforder Allee 3a, 23560 Lübeck
         </a>
-        <p>GRILL · SMOKEHOUSE · BAR</p>
+        <p>RESTAURANT &amp; BISTRO</p>
       </motion.div>
     </section>
   );

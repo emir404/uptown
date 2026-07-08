@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Diamond } from "./Brand";
 import { Reveal, TextLineReveal, EASE, useReducedMotionSafe } from "./Reveal";
 
 // Recurring specials, verbatim from the UPTOWN knowledge base
@@ -153,9 +154,13 @@ export function Specials() {
 
       <Reveal delay={0.15} className="mt-10">
         <p className="max-w-[72ch] text-[13px] font-medium leading-[1.6] text-muted">
-          Scampi „satt“ nur mit Vorkasse · Keine Gutschein-Einlösung bei
-          Sonder-Aktionen · Kein Doggy Bag bei „All you can eat“ · Termine und
-          Anmeldung: 0451 / 707 95 65
+          Scampi „satt“ nur mit Vorkasse
+          <Diamond className="mx-2 text-gold/80" />
+          Keine Gutschein-Einlösung bei Sonder-Aktionen
+          <Diamond className="mx-2 text-gold/80" />
+          Kein Doggy Bag bei „All you can eat“
+          <Diamond className="mx-2 text-gold/80" />
+          Termine und Anmeldung: 0451 / 707 95 65
         </p>
       </Reveal>
     </section>

@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
+import { Diamond, GoldFrame, SkylineFrieze } from "./Brand";
 import {
   Reveal,
   Stagger,
@@ -82,7 +83,7 @@ export function Contact() {
                 },
               }}
             >
-              <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(40px,8vw,118px)]">
+              <span className="block whitespace-nowrap font-serif tabular-nums leading-[1.05] text-foreground transition-colors duration-500 group-hover:text-accent text-[clamp(32px,10vw,118px)] lg:text-[clamp(40px,8vw,118px)]">
                 0451&nbsp;707&nbsp;95&nbsp;65
               </span>
               <span
@@ -115,8 +116,8 @@ export function Contact() {
               <span>Telefonisch erreichbar ab 15 Uhr</span>
             </StaggerItem>
             <StaggerItem y={16}>
-              <span className="hidden text-foreground/30 sm:inline" aria-hidden>
-                ·
+              <span className="hidden sm:inline" aria-hidden>
+                <Diamond className="text-gold/80" />
               </span>
             </StaggerItem>
             <StaggerItem y={16}>
@@ -124,14 +125,14 @@ export function Contact() {
                 href={MAPS_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline-offset-4 transition-colors hover:text-accent hover:underline"
+                className="underline decoration-1 decoration-foreground/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/60"
               >
                 Kronsforder Allee 3a, 23560 Lübeck
               </a>
             </StaggerItem>
             <StaggerItem y={16}>
-              <span className="hidden text-foreground/30 sm:inline" aria-hidden>
-                ·
+              <span className="hidden sm:inline" aria-hidden>
+                <Diamond className="text-gold/80" />
               </span>
             </StaggerItem>
             <StaggerItem y={16}>
@@ -230,6 +231,9 @@ export function Contact() {
 
       {/* Map with floating card */}
       <div className="relative mt-16 lg:mt-24">
+        <Reveal className="mb-12 flex justify-center lg:mb-16">
+          <SkylineFrieze className="h-9 w-[min(100%,520px)] text-gold/40" />
+        </Reveal>
         <Reveal y={60} amount={0.15}>
           <div className="relative aspect-[4/3] w-full overflow-clip sm:aspect-[16/9] lg:aspect-[21/9]">
             <iframe
@@ -244,7 +248,7 @@ export function Contact() {
         </Reveal>
 
         <motion.div
-          className="relative -mt-8 ml-4 mr-4 border-l-4 border-accent bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:ml-0 sm:mr-0 sm:mt-0 sm:max-w-[360px]"
+          className="relative -mt-8 ml-4 mr-4 bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:ml-0 sm:mr-0 sm:mt-0 sm:max-w-[360px]"
           initial={{
             opacity: 0,
             y: reducedMotion ? 0 : 60,
@@ -254,14 +258,18 @@ export function Contact() {
           viewport={{ once: true, amount: 0.6 }}
           transition={{ type: "spring", stiffness: 90, damping: 16, delay: 0.2 }}
         >
+          <GoldFrame />
           <p className="font-serif text-[17px] uppercase tracking-[0.16em] text-foreground">
             Uptown
+          </p>
+          <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.22em] text-gold/80">
+            Restaurant &amp; Bistro
           </p>
           <a
             href={MAPS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-2 block text-[15px] font-medium leading-[1.6] text-foreground/80 underline-offset-4 transition-colors hover:text-accent hover:underline"
+            className="mt-2 block text-[15px] font-medium leading-[1.6] text-foreground/80 underline decoration-1 decoration-foreground/40 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent/60"
           >
             Kronsforder Allee 3a
             <br />

@@ -16,11 +16,11 @@ const bodoni = Bodoni_Moda({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.uptown-restaurant.de"),
-  title: "UPTOWN Restaurant & Bistro – Grill & Smokehouse in Lübeck",
+  title: "UPTOWN Restaurant & Bistro – Lübeck",
   description:
-    "UPTOWN Restaurant & Bistro – Grill & Smokehouse in Lübeck, seit 2007. Argentinische Steaks, Smoke-Town-Ribs aus dem Smoker, Bison-Burger und Cocktails. Kronsforder Allee 3a, 23560 Lübeck.",
+    "UPTOWN Restaurant & Bistro in Lübeck, seit 2007. Argentinische Steaks, Smoke-Town-Ribs aus dem Smoker, Bison-Burger und Cocktails. Kronsforder Allee 3a, 23560 Lübeck.",
   openGraph: {
-    title: "UPTOWN Restaurant & Bistro – Grill & Smokehouse in Lübeck",
+    title: "UPTOWN Restaurant & Bistro – Lübeck",
     description:
       "Argentinische Steaks, Smoke-Town-Ribs aus dem Smoker, Bison-Burger und Cocktails – seit 2007 in Lübeck, nahe dem Mühlentorteller. Kronsforder Allee 3a, 23560 Lübeck.",
     type: "website",
