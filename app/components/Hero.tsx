@@ -58,7 +58,7 @@ export function Hero() {
         transition={{ duration: 1.6, ease: EASE }}
       >
         <Image
-          src="/images/hero.jpg"
+          src="/images/hero-interior.jpg"
           alt="Die geschwungene rote Bar und der bordeauxrote Torbogen im UPTOWN am Abend, mit Kerzen und warmem Lampenlicht"
           fill
           preload
