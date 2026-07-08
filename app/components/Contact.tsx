@@ -248,7 +248,7 @@ export function Contact() {
         </Reveal>
 
         <motion.div
-          className="relative -mt-8 ml-4 mr-4 bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:ml-0 sm:mr-0 sm:mt-0 sm:max-w-[360px]"
+          className="relative z-10 mt-4 bg-surface p-6 shadow-2xl sm:absolute sm:bottom-8 sm:left-8 sm:mt-0 sm:max-w-[360px]"
           initial={{
             opacity: 0,
             y: reducedMotion ? 0 : 60,

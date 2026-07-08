@@ -112,11 +112,11 @@ function ChapterRow({
         >
           <span
             aria-hidden
-            className="pointer-events-none absolute -top-1 left-4 select-none font-serif text-[88px] leading-none text-accent/70"
+            className="pointer-events-none absolute -top-10 left-7 select-none font-serif text-[72px] leading-none text-accent/70"
           >
             „
           </span>
-          <blockquote className="relative mt-7 font-serif text-[22px] leading-[1.4] text-foreground sm:text-[24px]">
+          <blockquote className="relative mt-2 font-serif text-[22px] leading-[1.4] text-foreground sm:text-[24px]">
             Gutes Fleisch braucht Zeit — am Grill, im Smoker und am Tisch. Wir
             freuen uns auf Ihren Besuch.
           </blockquote>
