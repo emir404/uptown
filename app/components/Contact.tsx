@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import Link from "next/link";
 import { Diamond, GoldFrame, SkylineFrieze } from "./Brand";
 import {
@@ -27,30 +27,12 @@ export function Contact() {
   const reducedMotion = useReducedMotionSafe();
   const openState = useOpenState();
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const ghostY = useTransform(scrollYProgress, [0, 1], [120, -120]);
-
   return (
     <section
       id="kontakt"
       ref={ref}
       className="relative overflow-clip bg-background px-6 py-20 sm:px-10 lg:px-[min(10.5vw,152px)] lg:py-[140px]"
     >
-      {/* Ghost heading */}
-      <motion.p
-        aria-hidden
-        className="pointer-events-none absolute -right-[2vw] top-8 select-none font-semibold uppercase leading-none tracking-[-0.02em] text-transparent text-[clamp(120px,22vw,340px)]"
-        style={{
-          WebkitTextStroke: "1.5px color-mix(in oklab, var(--foreground) 8%, transparent)",
-          y: reducedMotion ? 0 : ghostY,
-        }}
-      >
-        Kontakt
-      </motion.p>
-
       <div className="relative">
         <TextLineReveal
           as="h2"
