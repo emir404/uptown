@@ -32,9 +32,15 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
+
+# payload — local SQLite db and locally stored uploads
+/uptown.db*
+/public/media
+/public/documents
 
 # typescript
 *.tsbuildinfo

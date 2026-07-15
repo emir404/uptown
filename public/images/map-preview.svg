@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Stilisierte Karte der Lübecker Altstadt (Platzhalter)">
+  <!-- Lokaler, stilisierter Karten-Platzhalter — bewusst KEIN Google-Material,
+       damit vor der Einwilligung keinerlei Daten an Google fließen. -->
+  <rect width="800" height="480" fill="#dcf3f3"/>
+  <!-- Wasser (Trave um die Altstadtinsel) -->
+  <path d="M0 96 C 140 40 260 60 340 128 C 420 196 480 200 560 168 C 660 128 740 152 800 216 L 800 480 L 0 480 Z" fill="#bfe4e6"/>
+  <path d="M0 168 C 120 128 220 152 300 216 C 380 280 460 288 560 252 C 660 216 740 244 800 300 L 800 480 L 0 480 Z" fill="#dcf3f3"/>
+  <!-- Straßenraster -->
+  <g stroke="#0d4a4d" stroke-opacity="0.28" stroke-width="7" stroke-linecap="round" fill="none">
+    <path d="M80 480 L 150 220 L 200 60"/>
+    <path d="M230 480 L 290 240 L 330 90"/>
+    <path d="M400 480 L 430 260 L 450 120"/>
+    <path d="M560 480 L 570 280 L 600 140"/>
+    <path d="M700 480 L 690 300 L 720 180"/>
+    <path d="M0 300 L 250 280 L 520 300 L 800 270"/>
+    <path d="M0 390 L 260 370 L 540 390 L 800 360"/>
+    <path d="M60 190 L 320 180 L 560 200 L 780 180"/>
+  </g>
+  <g stroke="#0d4a4d" stroke-opacity="0.12" stroke-width="3.5" stroke-linecap="round" fill="none">
+    <path d="M160 480 L 210 250 L 260 80"/>
+    <path d="M320 480 L 360 250 L 390 110"/>
+    <path d="M480 480 L 500 270 L 520 130"/>
+    <path d="M630 480 L 630 290 L 660 160"/>
+    <path d="M0 245 L 280 230 L 540 250 L 800 225"/>
+    <path d="M0 345 L 255 325 L 530 345 L 800 315"/>
+    <path d="M30 435 L 270 420 L 550 435 L 800 410"/>
+  </g>
+  <!-- Häuserblöcke -->
+  <g fill="#0d4a4d" fill-opacity="0.08">
+    <rect x="170" y="290" width="90" height="60" rx="4"/>
+    <rect x="300" y="305" width="80" height="55" rx="4"/>
+    <rect x="440" y="300" width="90" height="70" rx="4"/>
+    <rect x="200" y="195" width="80" height="55" rx="4"/>
+    <rect x="350" y="205" width="70" height="50" rx="4"/>
+    <rect x="470" y="210" width="80" height="55" rx="4"/>
+    <rect x="600" y="215" width="70" height="60" rx="4"/>
+    <rect x="590" y="310" width="85" height="55" rx="4"/>
+  </g>
+  <!-- Marker: Fleischhauerstraße 80 -->
+  <g transform="translate(400 208)">
+    <circle cx="0" cy="6" r="34" fill="#ffcc66" fill-opacity="0.28"/>
+    <path d="M0 -34 C -19 -34 -34 -19 -34 0 C -34 24 0 52 0 52 C 0 52 34 24 34 0 C 34 -19 19 -34 0 -34 Z" fill="#0d4a4d"/>
+    <circle cx="0" cy="-2" r="12" fill="#ffcc66"/>
+  </g>
+</svg>
